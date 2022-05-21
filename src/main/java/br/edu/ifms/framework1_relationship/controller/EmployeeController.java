@@ -34,7 +34,7 @@ public class EmployeeController {
         html.addAttribute("noDataEmployee", new Employee());
         List<Project> projectsList = projectService.getProjects();
         html.addAttribute("projectsList", projectsList);
-        return "employee";
+        return "Employee";
     }
 
 

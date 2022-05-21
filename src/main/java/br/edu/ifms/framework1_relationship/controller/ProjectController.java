@@ -33,7 +33,7 @@ public class ProjectController {
         html.addAttribute("noDataProject", new Project());
         List<Employee> employeesList = employeeService.getEmployees();
         html.addAttribute("employeesList", employeesList);
-        return "project";
+        return "Project";
     }
 
 
