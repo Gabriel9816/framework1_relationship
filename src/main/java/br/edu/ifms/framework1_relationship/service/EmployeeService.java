@@ -4,9 +4,13 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.edu.ifms.framework1_relationship.model.Employee;
 import br.edu.ifms.framework1_relationship.repository.EmployeeRepository;
+
+
+@Service
 
 public class EmployeeService {
     
