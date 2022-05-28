@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@alphardex/aqua.css@1.5.0/dist/aqua.min.css'>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/css/navbarCenterStyle.css}">
+    <title>listagem</title>
 </head>
 
 <body>
@@ -38,7 +41,22 @@
         </div>
     </nav>
 
-    Tela Incial
+    <div class="centter">
+        <ul class="menu-hover-fill flex flex-col items-start leading-none text-2xl space-y-4">
+            <li><a href="#" data-text="Listar Chefe">Listar Chefe</a></li>
+            <li><a href="#" data-text="Listar Funcionario">Listar Funcionario</a></li>
+            <li><a href="#" data-text="Listar Recursos Humanos">Listar Recursos Humanos</a></li>
+            <li><a href="#" data-text="Listar Projeto">Listar Projeto</a></li>
+            <li><a href="#" data-text="Listar Estoque">Listar Estoque</a></li>
+            <li><a href="#" data-text="Listar Loja">Listar Loja</a></li>
+        </ul>
+    </div>
+
+    <footer class="bg-dark text-center text-lg-start fixed-bottom">
+        <div class="text-center p-3">
+            <p class="text-light bg-dark">© Desenvolvido por Gabriel Oliveira</p>
+        </div>
+    </footer>
 
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>

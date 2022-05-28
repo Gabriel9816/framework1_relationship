@@ -16,4 +16,12 @@ public class Framework1RelationshipApplication {
     public String index() {
         return "HomeScreen";
     }
+	@GetMapping("/cadHome")
+    public String cadHome() {
+        return "cadHome";
+    }
+	@GetMapping("/listHome")
+    public String listHome() {
+        return "listHome";
+    }
 }
