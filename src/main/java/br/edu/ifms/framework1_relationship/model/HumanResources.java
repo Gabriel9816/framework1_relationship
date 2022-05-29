@@ -26,7 +26,7 @@ public class HumanResources {
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
-    private String nome;
+    private String name;
     private double cost;
 
     
