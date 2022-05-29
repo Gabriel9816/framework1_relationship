@@ -3,9 +3,12 @@ package br.edu.ifms.framework1_relationship.controller;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,49 +16,57 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.ifms.framework1_relationship.model.Employee;
-import br.edu.ifms.framework1_relationship.model.Project;
 import br.edu.ifms.framework1_relationship.service.EmployeeService;
-import br.edu.ifms.framework1_relationship.service.ProjectService;
 
-@Controller
-@RequestMapping("/employee")
+@Controller // definindo essa clase como controladora
+@RequestMapping("/employee") // caminho
 public class EmployeeController {
+  
     @Autowired
     EmployeeService employeeService;
 
-    @Autowired
-    ProjectService projectService;
-    
-
-    @GetMapping("/")
-    public String listAllEmployees(Model html) {
-        List<Employee> employeesList = employeeService.getEmployees();
-        html.addAttribute("employeesList", employeesList);
-        html.addAttribute("noDataEmployee", new Employee());
-        List<Project> projectsList = projectService.getProjects();
-        html.addAttribute("projectsList", projectsList);
-        return "Employee";
-    }
-
-
-    @PostMapping("/save")
-    public String saveEmployee(@ModelAttribute("noDataEmployee") Employee employee) {
+    @PostMapping("/listar")
+    public String saves(@ModelAttribute("employee") Employee employee) {
         employeeService.save(employee);
-        return "redirect:/employee/";
+        return "redirect:/employee/listar";
     }
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    @GetMapping("/listar")
+    public String locall(@Valid Employee employee, Model model) {
+        List<Employee> employees = employeeService.getEmployees();
+        model.addAttribute("listEmployees", employees);
+        model.addAttribute("employeeUpdate", new Employee());
+        return "listEmployee";
+    }
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    @GetMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable("id") UUID id) {
+    @GetMapping("/cadastrar")
+    public String Cadastrar(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "Cad/cadEmployee";
+    }
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    @GetMapping("/remove/{id}")
+    public String removeEmployee(@PathVariable("id") UUID id) {
         employeeService.delete(id);
-        return "redirect:/employee/";
+        return "redirect:/employee/listar";
     }
 
-
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------
     @PostMapping("/update/{id}")
-    public String updateEmployee(@PathVariable("id") UUID id, @ModelAttribute("noDataEmployee") Employee employee) {
-        employeeService.save(employee);
-        return "redirect:/employee/";
-    }
-}
+    public String updateEmployee(@PathVariable("id") UUID id, @Valid Employee employee, BindingResult result,
+            Model model) {
+        if (result.hasErrors()) {
+            employee.setId(id);
+            return "edit";
+        }
 
+        this.employeeService.save(employee);
+
+        return "redirect:/employee/listar";
+    }
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+}

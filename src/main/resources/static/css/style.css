@@ -13,6 +13,21 @@ body {
 i {
 	margin-right: 10px;
 }
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
 /*----------bootstrap-navbar-css------------*/
 .navbar-logo{
 	padding: 15px;
@@ -167,3 +182,4 @@ i {
 		left: -25px;
 	}
 }
+
