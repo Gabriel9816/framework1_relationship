@@ -37,7 +37,7 @@ public class StockController {
         List<Stock> stocks = stockService.getStocks();
         model.addAttribute("listStocks", stocks);
         model.addAttribute("stockUpdate", new Stock());
-        return "listStock";
+        return "List/listStock";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ public class StockController {
             Model model) {
         if (result.hasErrors()) {
             stock.setId(id);
-            return "edit";
+            return "errorPage";
         }
 
         this.stockService.save(stock);

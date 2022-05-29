@@ -43,13 +43,14 @@
 
     <div class="centter">
         <ul class="menu-hover-fill flex flex-col items-start leading-none text-2xl space-y-4">
-            <li><a href="#" data-text="Listar Chefe">Listar Chefe</a></li>
-            <li><a href="#" data-text="Listar Funcionario">Listar Funcionario</a></li>
-            <li><a href="#" data-text="Listar Recursos Humanos">Listar Recursos Humanos</a></li>
-            <li><a href="#" data-text="Listar Projeto">Listar Projeto</a></li>
-            <li><a href="#" data-text="Listar Estoque">Listar Estoque</a></li>
-            <li><a href="#" data-text="Listar Loja">Listar Loja</a></li>
-        </ul>
+            <ul class="menu-hover-fill flex flex-col items-start leading-none text-2xl space-y-4">
+                <li><a th:href="@{/boss/listar/}" data-text="Listar Chefe">Listar Chefe</a></li>
+                <li><a th:href="@{/employee/listar/}" data-text="Listar Empregado">Listar Empregado</a></li>
+                <li><a th:href="@{/humanResources/listar/}" data-text="Listar Recursos Humanos">Listar Recursos Humanos</a></li>
+                <li><a th:href="@{/project/listar/}" data-text="Listar Projeto">Listar Projeto</a></li>
+                <li><a th:href="@{/stock/listar/}" data-text="Listar Estoque">Listar Estoque</a></li>
+                <li><a th:href="@{/store/listar/}" data-text="Listar Loja">Listar Loja</a></li>
+            </ul>
     </div>
 
     <footer class="bg-dark text-center text-lg-start fixed-bottom">

@@ -37,7 +37,7 @@ public class StoreController {
         List<Store> stores = storeService.getStores();
         model.addAttribute("listStores", stores);
         model.addAttribute("storeUpdate", new Store());
-        return "listStore";
+        return "List/listStore";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ public class StoreController {
             Model model) {
         if (result.hasErrors()) {
             store.setId(id);
-            return "edit";
+            return "errorPage";
         }
 
         this.storeService.save(store);

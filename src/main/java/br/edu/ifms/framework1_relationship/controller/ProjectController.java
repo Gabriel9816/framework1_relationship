@@ -37,7 +37,7 @@ public class ProjectController {
         List<Project> projects = projectService.getProjects();
         model.addAttribute("listProjects", projects);
         model.addAttribute("projectUpdate", new Project());
-        return "listProject";
+        return "List/listProject";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ public class ProjectController {
             Model model) {
         if (result.hasErrors()) {
             project.setId(id);
-            return "edit";
+            return "errorPage";
         }
 
         this.projectService.save(project);

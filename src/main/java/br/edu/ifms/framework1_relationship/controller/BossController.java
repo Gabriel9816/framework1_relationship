@@ -28,7 +28,7 @@ public class BossController {
     @PostMapping("/listar")
     public String saves(@ModelAttribute("boss") Boss boss) {
         bossService.save(boss);
-        return "redirect:/boss/listar";
+        return "redirect:/boss/listar/";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ public class BossController {
         List<Boss> bosss = bossService.getBosss();
         model.addAttribute("listBosss", bosss);
         model.addAttribute("bossUpdate", new Boss());
-        return "listBoss";
+        return "List/listBoss";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ public class BossController {
     @GetMapping("/remove/{id}")
     public String removeBoss(@PathVariable("id") UUID id) {
         bossService.delete(id);
-        return "redirect:/boss/listar";
+        return "redirect:/boss/listar/";
     }
 
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -60,12 +60,12 @@ public class BossController {
             Model model) {
         if (result.hasErrors()) {
             boss.setId(id);
-            return "edit";
+            return "errorPage";
         }
 
         this.bossService.save(boss);
 
-        return "redirect:/boss/listar";
+        return "redirect:/boss/listar/";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 

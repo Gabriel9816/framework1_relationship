@@ -37,7 +37,7 @@ public class HumanResourcesController {
         List<HumanResources> humanResourcess = humanResourcesService.getHumanResourcess();
         model.addAttribute("listHumanResourcess", humanResourcess);
         model.addAttribute("humanResourcesUpdate", new HumanResources());
-        return "listHumanResources";
+        return "List/listHumanResources";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ public class HumanResourcesController {
             Model model) {
         if (result.hasErrors()) {
             humanResources.setId(id);
-            return "edit";
+            return "errorPage";
         }
 
         this.humanResourcesService.save(humanResources);

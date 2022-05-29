@@ -24,4 +24,8 @@ public class Framework1RelationshipApplication {
     public String listHome() {
         return "listHome";
     }
+    @GetMapping("/errorPage")
+    public String errorPage() {
+        return "errorPage";
+    }
 }

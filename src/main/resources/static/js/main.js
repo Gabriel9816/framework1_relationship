@@ -1,3 +1,8 @@
+
+
+
+
+
 function test(){
 	var tabsNewAnim = $('#navbarSupportedContent');
 	var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
@@ -72,3 +77,4 @@ jQuery(document).ready(function($){
         }
     })
 });
+

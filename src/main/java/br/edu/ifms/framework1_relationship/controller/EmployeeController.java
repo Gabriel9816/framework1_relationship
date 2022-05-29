@@ -37,7 +37,7 @@ public class EmployeeController {
         List<Employee> employees = employeeService.getEmployees();
         model.addAttribute("listEmployees", employees);
         model.addAttribute("employeeUpdate", new Employee());
-        return "listEmployee";
+        return "List/listEmployee";
     }
     // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ public class EmployeeController {
             Model model) {
         if (result.hasErrors()) {
             employee.setId(id);
-            return "edit";
+            return "errorPage";
         }
 
         this.employeeService.save(employee);
